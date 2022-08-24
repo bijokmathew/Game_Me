@@ -13,7 +13,7 @@ public class MainListAdaptor extends BaseAdapter {
     List<Integer> mImageIds;
     Context mContext;
 
-    public MainListAdaptor(List<Integer> mImageIds, Context mContext) {
+    public MainListAdaptor(Context mContext,List<Integer> mImageIds) {
         this.mImageIds = mImageIds;
         this.mContext = mContext;
     }
