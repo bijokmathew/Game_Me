@@ -37,11 +37,11 @@ public class MainListAdaptor extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
 
         ImageView mImageView;
-        if(view == null){
+        if (view == null) {
             mImageView = new ImageView(mContext);
             mImageView.setAdjustViewBounds(true);
             mImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            mImageView.setPadding(8,8,8,8);
+            mImageView.setPadding(8, 8, 8, 8);
         } else {
             mImageView = (ImageView) view;
         }
