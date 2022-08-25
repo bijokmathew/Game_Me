@@ -28,12 +28,12 @@ public class GameMeActivity extends AppCompatActivity {
 
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 fragmentManager.beginTransaction().add(R.id.head_container, headFragment).commit();
-                Log.d("FragmentManager","headFragment");
+
                 BodyPartFragment bodyFragment = new BodyPartFragment();
                 bodyFragment.setmImageResourceId(GameMeImageAssets.getBodies());
                 bodyFragment.setmIndex(bundle.getInt("body"));
                 fragmentManager.beginTransaction().add(R.id.body_container, bodyFragment).commit();
-                Log.d("bodyFragment","headFragment");
+
                 BodyPartFragment legFragment = new BodyPartFragment();
                 legFragment.setmImageResourceId(GameMeImageAssets.getLegs());
                 legFragment.setmIndex(bundle.getInt("leg"));
