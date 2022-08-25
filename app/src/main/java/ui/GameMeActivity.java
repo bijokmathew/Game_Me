@@ -3,7 +3,9 @@ package ui;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.bkm.game_me.R;
 
@@ -16,20 +18,27 @@ public class GameMeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_me);
         if (savedInstanceState == null) {
-            BodyPartFragment headFragment = new BodyPartFragment();
-            headFragment.setmImageResourceId(GameMeImageAssets.getHeads());
-            //headFragment.setmIndex(1);
+            Intent intent = getIntent();
+            if (intent != null) {
+                Bundle bundle = intent.getBundleExtra("index");
 
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().add(R.id.head_container, headFragment).commit();
+                BodyPartFragment headFragment = new BodyPartFragment();
+                headFragment.setmImageResourceId(GameMeImageAssets.getHeads());
+                headFragment.setmIndex(bundle.getInt("head"));
 
-            BodyPartFragment bodyFragment = new BodyPartFragment();
-            bodyFragment.setmImageResourceId(GameMeImageAssets.getBodies());
-            fragmentManager.beginTransaction().add(R.id.body_container, bodyFragment).commit();
-
-            BodyPartFragment legFragment = new BodyPartFragment();
-            legFragment.setmImageResourceId(GameMeImageAssets.getLegs());
-            fragmentManager.beginTransaction().add(R.id.leg_container, legFragment).commit();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction().add(R.id.head_container, headFragment).commit();
+                Log.d("FragmentManager","headFragment");
+                BodyPartFragment bodyFragment = new BodyPartFragment();
+                bodyFragment.setmImageResourceId(GameMeImageAssets.getBodies());
+                bodyFragment.setmIndex(bundle.getInt("body"));
+                fragmentManager.beginTransaction().add(R.id.body_container, bodyFragment).commit();
+                Log.d("bodyFragment","headFragment");
+                BodyPartFragment legFragment = new BodyPartFragment();
+                legFragment.setmImageResourceId(GameMeImageAssets.getLegs());
+                legFragment.setmIndex(bundle.getInt("leg"));
+                fragmentManager.beginTransaction().add(R.id.leg_container, legFragment).commit();
+            }
         }
     }
 }
