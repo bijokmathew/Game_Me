@@ -48,7 +48,6 @@ public class BodyPartFragment extends Fragment {
         }
         if (mImageResourceId != null) {
             imageView.setImageResource(mImageResourceId.get(mIndex));
-            Log.d("setImageResource", String.valueOf(mIndex));
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -71,7 +70,6 @@ public class BodyPartFragment extends Fragment {
     }
 
     public void setmIndex(int mIndex) {
-        Log.d("setmIndex", String.valueOf(mIndex));
         this.mIndex = mIndex;
     }
 }
